@@ -32,6 +32,7 @@ const SignIn = () => {
                 return;
             }
 
+            window.dispatchEvent(new Event('insforge-auth-change'));
             navigate('/');
         } catch (err) {
             setError(err?.message || 'Sign in failed');

@@ -18,12 +18,12 @@ const SignUp = () => {
 
     const [view, setView] = useState('form'); // form | verify
 
-    const handleRegister = async () => {
+    const handleRegister = async (e) => {
+        if (e?.preventDefault) e.preventDefault();
         setError('');
+        setLoading(true);
 
         try {
-            setLoading(true);
-
             const { data, error: signUpError } = await insforge.auth.signUp({
                 email,
                 password,
@@ -35,18 +35,23 @@ const SignUp = () => {
             });
 
             if (signUpError) {
-                setError(signUpError.message || 'Sign up failed');
-                return;
+                throw signUpError;
             }
 
-            // If backend returns an existing session, treat it as logged-in.
-            if (data?.session) {
+            if (data?.user) {
+                const { error: signInError } = await insforge.auth.signInWithPassword({ email, password });
+                if (signInError) {
+                    throw signInError;
+                }
+
+                window.dispatchEvent(new Event('insforge-auth-change'));
                 navigate('/');
                 return;
             }
 
             setView('verify');
         } catch (err) {
+            console.error('Signup error:', err?.message || err);
             setError(err?.message || 'Sign up failed');
         } finally {
             setLoading(false);
@@ -110,13 +115,14 @@ const SignUp = () => {
                             </div>
                         ) : null}
 
-                        <div
+                        <button
+                            type="button"
                             onClick={loading ? undefined : handleRegister}
                             className='btnClass large font-medium text-[14px] lg:text-[16px] bg-orange !border-orange text-white w-full text-center cursor-pointer'
                             style={loading ? { opacity: 0.6, pointerEvents: 'none' } : undefined}
                         >
                             {loading ? 'Registering...' : 'Register'}
-                        </div>
+                        </button>
 
                         <div className="my-4 text-center relative">
                             <div className="w-full h-[1px] bg-[#E5E5E5] absolute left-0 top-1/2 -translate-y-1/2"></div>

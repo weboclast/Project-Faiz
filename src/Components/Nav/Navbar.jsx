@@ -4,17 +4,6 @@ import { BagIcon, CloseIcon, SearchIcon } from '../Icon/Icon'
 import { NavLink } from 'react-router-dom'
 import { insforge } from '../../insforge'
 
-const LoginButton = ({ label }) => {
-    return (
-        <NavLink
-            to="/sign-in"
-            className='!hidden md:!inline-block cursor-pointer font-medium text-[12px] lg:text-[14px] text-orange !border-orange btnClass hover:bg-orange hover:text-white'
-        >
-            {label}
-        </NavLink>
-    )
-}
-
 const Navbar = () => {
     const dataSearch = [
         "Shirts",
@@ -29,6 +18,36 @@ const Navbar = () => {
     const [toggleSearch, settoggleSearch] = useState(false)
 
     const [ToogleMenuResponsive, setToogleMenuResponsive] = useState(false);
+    const [userName, setUserName] = useState(null);
+
+    useEffect(() => {
+        let isMounted = true;
+
+        const loadCurrentUser = async () => {
+            const { data, error } = await insforge.auth.getCurrentUser();
+            if (!isMounted) return;
+
+            if (error) {
+                console.error('Failed to load current user:', error);
+            }
+
+            const user = data?.user ?? null;
+            setUserName(user ? (user.user_metadata?.display_name || user.email) : null);
+        };
+
+        const handleAuthChange = () => {
+            loadCurrentUser();
+        };
+
+        loadCurrentUser();
+        window.addEventListener('insforge-auth-change', handleAuthChange);
+
+        return () => {
+            isMounted = false;
+            window.removeEventListener('insforge-auth-change', handleAuthChange);
+        };
+    }, []);
+
     return (
         <Fragment>
             <div className={"fixed h-full w-full bg-white z-[99] pt-[100px] menuMobile " + (ToogleMenuResponsive ? "active" : "")}>
@@ -55,7 +74,13 @@ const Navbar = () => {
                             </li>
                         </ul>
                         <div className="self-end w-full">
-                            <NavLink to="/sign-in" className='inline-block cursor-pointer font-medium text-[14px] text-orange !border-orange btnClass hover:bg-orange hover:text-white'>Login</NavLink>
+                            {userName ? (
+                                <NavLink to="/" className='inline-block cursor-pointer font-medium text-[14px] text-orange !border-orange btnClass hover:bg-orange hover:text-white'>
+                                    {userName}
+                                </NavLink>
+                            ) : (
+                                <NavLink to="/sign-in" className='inline-block cursor-pointer font-medium text-[14px] text-orange !border-orange btnClass hover:bg-orange hover:text-white'>Login</NavLink>
+                            )}
                         </div>
                     </div>
                 </Container>
@@ -124,7 +149,13 @@ const Navbar = () => {
                             <BagIcon />
                         </NavLink>
 
-                        <NavLink to="/sign-in" className='!hidden md:!inline-block cursor-pointer font-medium text-[12px] lg:text-[14px] text-orange !border-orange btnClass hover:bg-orange hover:text-white'>Login</NavLink>
+                        {userName ? (
+                            <NavLink to="/" className='!hidden md:!inline-block cursor-pointer font-medium text-[12px] lg:text-[14px] text-orange !border-orange btnClass hover:bg-orange hover:text-white'>
+                                {userName}
+                            </NavLink>
+                        ) : (
+                            <NavLink to="/sign-in" className='!hidden md:!inline-block cursor-pointer font-medium text-[12px] lg:text-[14px] text-orange !border-orange btnClass hover:bg-orange hover:text-white'>Login</NavLink>
+                        )}
                     </div>
                 </Container>
             </div>
