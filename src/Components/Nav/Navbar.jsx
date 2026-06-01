@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import { BagIcon, CloseIcon, SearchIcon } from '../Icon/Icon'
-import { Fragment } from 'react'
 import { NavLink } from 'react-router-dom'
-import { useState } from 'react'
+import { insforge } from '../../insforge'
+
+const LoginButton = ({ label }) => {
+    return (
+        <NavLink
+            to="/sign-in"
+            className='!hidden md:!inline-block cursor-pointer font-medium text-[12px] lg:text-[14px] text-orange !border-orange btnClass hover:bg-orange hover:text-white'
+        >
+            {label}
+        </NavLink>
+    )
+}
 
 const Navbar = () => {
     const dataSearch = [

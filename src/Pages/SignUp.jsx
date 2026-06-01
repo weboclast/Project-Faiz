@@ -24,14 +24,24 @@ const SignUp = () => {
         try {
             setLoading(true);
 
-            const { error: signUpError } = await insforge.auth.signUp({
+            const { data, error: signUpError } = await insforge.auth.signUp({
                 email,
                 password,
-                name: fullname,
+                options: {
+                    data: {
+                        display_name: fullname,
+                    },
+                },
             });
 
             if (signUpError) {
                 setError(signUpError.message || 'Sign up failed');
+                return;
+            }
+
+            // If backend returns an existing session, treat it as logged-in.
+            if (data?.session) {
+                navigate('/');
                 return;
             }
 
