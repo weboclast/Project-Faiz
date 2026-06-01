@@ -1,13 +1,13 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Col, Container, Form, Modal, Row } from 'react-bootstrap'
 import { RightArrowIcon } from '../Components/Icon/Icon'
 
 const Payment = () => {
     const [ToogleCheck, setToogleCheck] = useState("")
     const roundChekck = (e) => {
-        return <div onClick={() => setToogleCheck(e)} className={"w-[24px] h-[24px] rounded-full border border-solid flex items-center justify-center cursor-pointer " + (ToogleCheck == e ? "border-orange bg-orange" : "border-[#A3A3A3]")}>
+        return <div onClick={() => setToogleCheck(e)} className={"w-[24px] h-[24px] rounded-full border border-solid flex items-center justify-center cursor-pointer " + (ToogleCheck === e ? "border-orange bg-orange" : "border-[#A3A3A3]")}>
             {
-                ToogleCheck == e ? <img src="./../images/check (3).svg" alt="" /> : ""
+                ToogleCheck === e ? <img src="./../images/check (3).svg" alt="" /> : null
             }
         </div>
     }
@@ -110,7 +110,7 @@ const Payment = () => {
                                 <Form.Label className='font-medium text-[14px] lg:text-[16px]'>Select Payment Method</Form.Label>
                                 <Row>
                                     <Col md={6} className='mb-3 md:mb-0'>
-                                        <div className={"flex justify-between items-center px-3 py-3 border border-solid rounded-[8px] cursor-pointer " + (ToogleCheck == "paypal" ? "!border-orange" : "border-[#E5E5E5]")} onClick={() => setToogleCheck("paypal")}>
+                                        <div className={"flex justify-between items-center px-3 py-3 border border-solid rounded-[8px] cursor-pointer " + (ToogleCheck === "paypal" ? "!border-orange" : "border-[#E5E5E5]")} onClick={() => setToogleCheck("paypal")}>
                                             <div className="flex items-center gap-3">
                                                 <img src="./../images/paypal.png" alt="" />
 
@@ -121,7 +121,7 @@ const Payment = () => {
                                         </div>
                                     </Col>
                                     <Col md={6}>
-                                        <div className={"flex justify-between items-center px-3 py-3 border border-solid rounded-[8px] cursor-pointer " + (ToogleCheck == "Apple Pay" ? "!border-orange" : "border-[#E5E5E5]")} onClick={() => setToogleCheck("Apple Pay")}>
+                                        <div className={"flex justify-between items-center px-3 py-3 border border-solid rounded-[8px] cursor-pointer " + (ToogleCheck === "Apple Pay" ? "!border-orange" : "border-[#E5E5E5]")} onClick={() => setToogleCheck("Apple Pay")}>
                                             <div className="flex items-center gap-3">
                                                 <img src="./../images/applepay.png" alt="" />
 

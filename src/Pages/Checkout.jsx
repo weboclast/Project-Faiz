@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Col, Container, Form, Row } from 'react-bootstrap'
 import { RightArrowIcon } from '../Components/Icon/Icon'
 import { NavLink } from 'react-router-dom'
@@ -6,9 +6,9 @@ import { NavLink } from 'react-router-dom'
 const Checkout = () => {
     const [ToogleCheck, setToogleCheck] = useState("")
     const roundChekck = (e) => {
-        return <div onClick={() => setToogleCheck(e)} className={"w-[24px] h-[24px] rounded-full border border-solid flex items-center justify-center cursor-pointer " + (ToogleCheck == e ? "border-orange bg-orange" : "border-[#A3A3A3]")}>
+        return <div onClick={() => setToogleCheck(e)} className={"w-[24px] h-[24px] rounded-full border border-solid flex items-center justify-center cursor-pointer " + (ToogleCheck === e ? "border-orange bg-orange" : "border-[#A3A3A3]")}>
             {
-                ToogleCheck == e ? <img src="./../images/check (3).svg" alt="" /> : ""
+                ToogleCheck === e ? <img src="./../images/check (3).svg" alt="" /> : null
             }
         </div>
     }
@@ -82,7 +82,7 @@ const Checkout = () => {
                                 <Form.Label className='font-medium text-[14px] lg:text-[16px]'>Shipping Method</Form.Label>
                                 <Row>
                                     <Col className='mb-4 xl:mb-0' xl={6}>
-                                        <div className={"flex justify-between items-center px-3 py-3 border border-solid rounded-[8px] cursor-pointer " + (ToogleCheck == "DHL" ? "!border-orange" : "border-[#E5E5E5]")} onClick={() => setToogleCheck("DHL")}>
+                                        <div className={"flex justify-between items-center px-3 py-3 border border-solid rounded-[8px] cursor-pointer " + (ToogleCheck === "DHL" ? "!border-orange" : "border-[#E5E5E5]")} onClick={() => setToogleCheck("DHL")}>
                                             <div className="flex items-center gap-3">
                                                 <img src="./../images/dhl-3 1.png" alt="" />
                                                 <div>
@@ -97,7 +97,7 @@ const Checkout = () => {
                                         </div>
                                     </Col>
                                     <Col xl={6}>
-                                        <div className={"flex justify-between items-center px-3 py-3 border border-solid rounded-[8px] cursor-pointer " + (ToogleCheck == "FedEx" ? "!border-orange" : "border-[#E5E5E5]")} onClick={() => setToogleCheck("FedEx")}>
+                                        <div className={"flex justify-between items-center px-3 py-3 border border-solid rounded-[8px] cursor-pointer " + (ToogleCheck === "FedEx" ? "!border-orange" : "border-[#E5E5E5]")} onClick={() => setToogleCheck("FedEx")}>
                                             <div className="flex items-center gap-3">
                                                 <img src="./../images/fedex-express-1 1.png" alt="" />
                                                 <div>

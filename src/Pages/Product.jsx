@@ -208,7 +208,7 @@ const Product = () => {
                             value={SearchValue}
                         />
                         {
-                            SearchValue != "" ? <div className="cursor-pointer" onClick={() => setSearchValue("")}><CloseIcon /></div> : ""
+                            SearchValue !== "" ? <div className="cursor-pointer" onClick={() => setSearchValue("")}><CloseIcon /></div> : null
                         }
                     </InputGroup>
 
@@ -378,8 +378,8 @@ const Product = () => {
                                                             {
                                                                 filterData[0].color.map((obj) => {
                                                                     return <div className='justify-center cursor-pointer flex flex-wrap gap-[15px]' onClick={() => selectColorFiler(obj)}>
-                                                                        <div className={"px-[5px] py-[5px] rounded-full " + (selectColor.filter(item => item == obj.color)[0] ? "border border-solid !border-[#838382] " : "border border-solid !border-white")}>
-                                                                            <div className={"w-[42px] h-[42px] rounded-full " + (obj.name == "White" ? "border border-solid border-[#F5F5F5]" : "")} style={{ backgroundColor: obj.color }}></div>
+                                                                        <div className={"px-[5px] py-[5px] rounded-full " + (selectColor.filter(item => item === obj.color)[0] ? "border border-solid !border-[#838382] " : "border border-solid !border-white")}>
+                                                                            <div className={"w-[42px] h-[42px] rounded-full " + (obj.name === "White" ? "border border-solid border-[#F5F5F5]" : "")} style={{ backgroundColor: obj.color }}></div>
                                                                         </div>
                                                                         <h5 className='font-normal text-[12px]'>{obj.name}</h5>
                                                                     </div>

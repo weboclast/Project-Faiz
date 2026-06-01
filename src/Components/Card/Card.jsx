@@ -8,11 +8,11 @@ export const CardProduct = (props) => {
             <img src={props.data.img} className='w-full h-[250px] md:h-[300px] lg:h-[350px] xl:h-[480px] rounded-[8px] md:rounded-[32px] object-cover' alt="" />
             <div className="mt-3 flex flex-wrap md:flex-nowrap gap-y-2 items-center justify-between">
                 <div className='w-full md:w-auto'>
-                    <h3 className={'font-medium ' + (props.type == "small" ? "text-[14px] lg:text-[16px] lg:text-[18px] xl:text-[20px]" : "text-[18px] lg:text-[16px] lg:text-[18px] xl:text-[20px] xl:text-[24px]")}>{props.data.name}</h3>
-                    <p className={'text-gray ' + (props.type == "small" ? "text-[12px] lg:text-[14px]" : "text-[14px] lg:text-[16px]")}>{props.data.category}</p>
+                    <h3 className={'font-medium ' + (props.type === "small" ? "text-[14px] lg:text-[16px] lg:text-[18px] xl:text-[20px]" : "text-[18px] lg:text-[16px] lg:text-[18px] xl:text-[20px] xl:text-[24px]")}>{props.data.name}</h3>
+                    <p className={'text-gray ' + (props.type === "small" ? "text-[12px] lg:text-[14px]" : "text-[14px] lg:text-[16px]")}>{props.data.category}</p>
                 </div>
 
-                <div className={"btnClass border border-solid border-[#E5E5E5] font-medium " + (props.type == "small" ? "text-[16px] lg:text-[18px]" : "text-[18px] lg:text-[16px] lg:text-[18px] xl:text-[20px] xl:text-[24px]")}>${props.data.price}</div>
+                <div className={"btnClass border border-solid border-[#E5E5E5] font-medium " + (props.type === "small" ? "text-[16px] lg:text-[18px]" : "text-[18px] lg:text-[16px] lg:text-[18px] xl:text-[20px] xl:text-[24px]")}>${props.data.price}</div>
             </div>
         </NavLink >
     )

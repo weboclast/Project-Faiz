@@ -1,10 +1,10 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { CartList } from '../Components/LIst/List'
 import { NavLink } from 'react-router-dom'
 
 const Cart = () => {
-    const [StatusCart, setStatusCart] = useState(true)
+    const [StatusCart] = useState(true)
 
 
     const [ToogleCheck, setToogleCheck] = useState(false)

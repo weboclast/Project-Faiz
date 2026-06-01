@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { CardBlog } from '../Components/Card/Card'
 import { PaginationDetail } from '../Components/Pagination/Pagination'

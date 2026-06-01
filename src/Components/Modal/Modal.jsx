@@ -24,24 +24,18 @@ export const StepModal = ({ show, handleClose, handleShow, StatusModal, setStatu
         switch (e) {
             case "login":
                 return <LoginContent onEventClick={(e) => onEventClick(e)} />
-                break;
             case "register":
                 return <RegisterContent onEventClick={(e) => onEventClick(e)} />
-                break;
             case "forgot password":
                 return <ForgotContent onEventClick={(e) => onEventClick(e)} />
-                break;
             case "verify your email":
                 return <VerifyContent onEventClick={(e) => onEventClick(e)} />
-                break;
             case "change password":
                 return <ChangeContent onEventClick={(e) => onEventClick(e)} />
-                break;
             case "succsess":
                 return <SuccsessContent onEventClick={(e) => onEventClick(e)} />
-                break;
             default:
-                break;
+                return null
         }
     }
     return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Form, InputGroup } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import { BagIcon, CloseIcon, SearchIcon } from '../Icon/Icon'
 import { Fragment } from 'react'
 import { NavLink } from 'react-router-dom'

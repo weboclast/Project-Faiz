@@ -1,12 +1,12 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 
 const Address = () => {
     const [ToogleCheck, setToogleCheck] = useState("")
     const roundChekck = (e) => {
-        return <div onClick={() => setToogleCheck(e)} className={"w-[24px] h-[24px] rounded-full border border-solid flex items-center justify-center cursor-pointer " + (ToogleCheck == e ? "border-orange bg-orange" : "border-[#A3A3A3]")}>
+        return <div onClick={() => setToogleCheck(e)} className={"w-[24px] h-[24px] rounded-full border border-solid flex items-center justify-center cursor-pointer " + (ToogleCheck === e ? "border-orange bg-orange" : "border-[#A3A3A3]")}>
             {
-                ToogleCheck == e ? <img src="./../images/check (3).svg" alt="" /> : ""
+                ToogleCheck === e ? <img src="./../images/check (3).svg" alt="" /> : null
             }
         </div>
     }
@@ -21,7 +21,7 @@ const Address = () => {
 
                             <div className="flex flex-wrap gap-4">
 
-                                <div className={"flex justify-between items-center px-3 py-3 border border-solid rounded-[8px] cursor-pointer w-full " + (ToogleCheck == "home" ? "!border-orange" : "border-[#E5E5E5]")} onClick={() => setToogleCheck("home")}>
+                                <div className={"flex justify-between items-center px-3 py-3 border border-solid rounded-[8px] cursor-pointer w-full " + (ToogleCheck === "home" ? "!border-orange" : "border-[#E5E5E5]")} onClick={() => setToogleCheck("home")}>
                                     <div>
                                         <div className="flex gap-3">
                                             <div className="flex items-center justify-center w-[48px] h-[48px] rounded-full border border-solid border-[#E5E5E5] shrink-0">
@@ -41,7 +41,7 @@ const Address = () => {
                                     </div>
                                 </div>
 
-                                <div className={"flex justify-between items-center px-3 py-3 border border-solid rounded-[8px] cursor-pointer w-full " + (ToogleCheck == "Office" ? "!border-orange" : "border-[#E5E5E5]")} onClick={() => setToogleCheck("Office")}>
+                                <div className={"flex justify-between items-center px-3 py-3 border border-solid rounded-[8px] cursor-pointer w-full " + (ToogleCheck === "Office" ? "!border-orange" : "border-[#E5E5E5]")} onClick={() => setToogleCheck("Office")}>
                                     <div>
                                         <div className="flex gap-3">
                                             <div className="flex items-center justify-center w-[48px] h-[48px] rounded-full border border-solid border-[#E5E5E5] shrink-0">

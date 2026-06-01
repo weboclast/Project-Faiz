@@ -1,5 +1,5 @@
-import React, { Fragment, useEffect, useState } from 'react'
-import { Col, Container, Form, InputGroup, Row } from 'react-bootstrap'
+import React, { Fragment, useState } from 'react'
+import { Col, Container, Form, Row } from 'react-bootstrap'
 import { DownIcon, EditIcon, InfoIcon, StarRateIcon } from '../Components/Icon/Icon'
 import { CarouselDetail } from '../Components/Carousel/Carousel'
 import { ListComment, ListCommentDiscussion } from '../Components/LIst/List'
@@ -114,6 +114,7 @@ const Detail = () => {
                                     emptySymbol={
                                         <img
                                             src="./../images/star.png"
+                                            alt="star"
                                             className="icon"
                                             style={{
                                                 width: "24px",
@@ -125,6 +126,7 @@ const Detail = () => {
                                     placeholderSymbol={
                                         <img
                                             src="./../images/star (1).png"
+                                            alt="star"
                                             className="icon"
                                             style={{
                                                 width: "24px",
@@ -136,6 +138,7 @@ const Detail = () => {
                                     fullSymbol={
                                         <img
                                             src="./../images/star (2).png"
+                                            alt="star"
                                             className="icon"
                                             style={{
                                                 width: "24px",
@@ -401,20 +404,20 @@ const Detail = () => {
             <section>
                 <Container>
                     <div className="flex items-center gap-2 font-medium text-[14px] lg:text-[16px] border-b-[1px] border-solid border-[#E5E5E5] mb-6">
-                        <div onClick={() => settoogleTab("Details")} className={"px-2 sm:px-3 cursor-pointer relative py-2  " + (toogleTab == "Details" ? "text-black border-b-[1px] border-solid border-black" : "text-[#A3A3A3]")}>
+                        <div onClick={() => settoogleTab("Details")} className={"px-2 sm:px-3 cursor-pointer relative py-2  " + (toogleTab === "Details" ? "text-black border-b-[1px] border-solid border-black" : "text-[#A3A3A3]")}>
                             Details
                         </div>
-                        <div onClick={() => settoogleTab("Reviews")} className={"px-2 sm:px-3 cursor-pointer relative py-2 " + (toogleTab == "Reviews" ? "text-black border-b-[1px] border-solid border-black" : "text-[#A3A3A3]")}>
+                        <div onClick={() => settoogleTab("Reviews")} className={"px-2 sm:px-3 cursor-pointer relative py-2 " + (toogleTab === "Reviews" ? "text-black border-b-[1px] border-solid border-black" : "text-[#A3A3A3]")}>
                             Reviews (146)
                         </div>
-                        <div onClick={() => settoogleTab("Discussion")} className={"px-2 sm:px-3 cursor-pointer relative py-2 " + (toogleTab == "Discussion" ? "text-black border-b-[1px] border-solid border-black" : "text-[#A3A3A3]")}>
+                        <div onClick={() => settoogleTab("Discussion")} className={"px-2 sm:px-3 cursor-pointer relative py-2 " + (toogleTab === "Discussion" ? "text-black border-b-[1px] border-solid border-black" : "text-[#A3A3A3]")}>
                             Discussion
                         </div>
                     </div>
 
 
                     {
-                        toogleTab == "Details" ? Details() : toogleTab == "Reviews" ? Reviews() : Discussion()
+                        toogleTab === "Details" ? Details() : toogleTab === "Reviews" ? Reviews() : Discussion()
 
                     }
                 </Container>

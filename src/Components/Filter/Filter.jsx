@@ -22,7 +22,7 @@ export const FilterProduct = () => {
                 <div className="flex items-center gap-4">
                     {
                         dataFIlter.map((obj) => {
-                            return <div onClick={() => setSelected(obj)} className={'py-[8px] lg:py-[12px] flex-shrink-0 px-[20px] cursor-pointer text-[14px] lg:text-[16px] hover:bg-black hover:text-white rounded-full ' + (Selected == obj ? "bg-black text-white" : "")}>{obj}</div>
+                            return <div onClick={() => setSelected(obj)} className={'py-[8px] lg:py-[12px] flex-shrink-0 px-[20px] cursor-pointer text-[14px] lg:text-[16px] hover:bg-black hover:text-white rounded-full ' + (Selected === obj ? "bg-black text-white" : "")}>{obj}</div>
                         })
                     }
                 </div>

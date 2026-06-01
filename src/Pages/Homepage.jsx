@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Col, Container, Form, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import { FilterProduct } from '../Components/Filter/Filter'
 import { CardProduct } from '../Components/Card/Card'
 import { CarouselTestimonial } from '../Components/Carousel/Carousel'
@@ -88,7 +88,7 @@ const Homepage = () => {
                     <Row>
                         {
                             dataProduct.map((obj, i) => {
-                                return <Col className={'col-6 ' + (i == 2 ? "hidden lg:block" : "")} lg={4}>
+                                return <Col className={'col-6 ' + (i === 2 ? "hidden lg:block" : "")} lg={4}>
                                     <CardProduct data={obj} />
                                 </Col>
                             })

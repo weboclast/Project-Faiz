@@ -61,7 +61,7 @@ export const ListComment = ({ replayIcon = false }) => {
         const [UnlikeCount, setUnlikeCount] = useState(0)
 
         const ToogleLike = (e) => {
-            if (e == "like") {
+            if (e === "like") {
 
                 if (Unlike) {
                     setUnlike(!Unlike)
@@ -164,7 +164,7 @@ export const ListCommentDiscussion = ({ replay = false }) => {
         const [UnlikeCount, setUnlikeCount] = useState(0)
 
         const ToogleLike = (e) => {
-            if (e == "like") {
+            if (e === "like") {
 
                 if (Unlike) {
                     setUnlike(!Unlike)
