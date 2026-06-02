@@ -221,7 +221,7 @@ const Product = () => {
                                     {
                                         !Filter ? <div className="flex items-center justify-end gap-[1rem]">
                                             <div className="flex px-[24px] py-[16px] rounded-full border border-1 boder-[#E5E5E5] gap-[15px] items-center">
-                                                <span className='font-medium text-[14px] lg:text-[16px]'>Short By</span> <DownIcon />
+                                                <span className='font-medium text-[14px] lg:text-[16px]'>Sort By</span> <DownIcon />
                                             </div>
                                             <div className="flex px-[24px] py-[16px] rounded-full border border-1 boder-[#E5E5E5] gap-[15px] items-center cursor-pointer" onClick={() => setFilter(!Filter)}>
                                                 <span className='font-medium text-[14px] lg:text-[16px]'>Filter</span> <FilterIcon />
